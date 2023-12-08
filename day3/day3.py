@@ -37,7 +37,7 @@ def star1():
                 
                 
 def checkGear(x, y, l, grid):
-    directions = [(-1, -1), (-1, 0), (-1, 1), (1, -1), (1, 0), (1, 1),(0,1),(0,-1)]
+    directions = [(-1, 1), (-1, 0), (-1, -1), (0,1), (0,-1), (1, -1), (1, 0), (1, 1)]
     gear = ()
     for i in range(l):
         xOffset = x + i
@@ -48,9 +48,11 @@ def checkGear(x, y, l, grid):
             if (0<= cy < len(grid) and 0 <= cx < len(grid[cy])):
                 if (grid[cy][cx] == '*'):
                     if gear != ():
-                        return
+                        return ()
                     else:
                         gear = (cx, cy)
+        if i < 1:
+            directions = directions[5:]
     return gear
         
         
@@ -73,7 +75,6 @@ def star2():
                         x += 1
                     l = len(num) 
                     gear = checkGear(start_x, y, l, grid)
-                    print(gear)
                     if gear != ():
                         if gear not in gearMap:
                             gearMap[gear] = []
@@ -90,5 +91,6 @@ def star2():
                      
                 
 
-
-print(star2())
+if __name__ == "__main__":
+    print("Star 1: ", star1())
+    print("Star 2: ", star2())
