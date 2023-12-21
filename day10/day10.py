@@ -107,7 +107,9 @@ def star2():
             else:
                 move = (0, -1)
         x, y = x + move[0], y + move[1]
-        
+    
+    
+    # can make faster with hashmap 
     size = 0
     for i in range(len(map)):
         within = False
